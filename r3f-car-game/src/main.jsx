@@ -1,10 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import "./main.css";
+import ReactDOM from "react-dom/client";
+import { Canvas } from "@react-three/fiber";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+import Experience from "./Experience";
+
+const root = ReactDOM.createRoot(document.querySelector("#root"));
+
+root.render(
+	<Canvas>
+		<Experience />
+	</Canvas>,
+);
