@@ -8,7 +8,7 @@ import Car from "./Car";
 export default function Experience() {
 	return (
 		<Suspense fallback={null}>
-			<Environment files={"/textures/envmap.hdr"} background={"both"} />
+			<Environment files={"/textures/envmap5.hdr"} background={"both"} />
 			<PerspectiveCamera makeDefault position={[-6, 3.9, 6.21]} fov={40} />
 			<OrbitControls target={[-2.64, -0.71, 0.03]} />
 

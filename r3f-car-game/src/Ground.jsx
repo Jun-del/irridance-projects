@@ -1,9 +1,19 @@
+import { usePlane } from "@react-three/cannon";
 import { MeshReflectorMaterial } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { BufferAttribute, TextureLoader } from "three";
 
 export default function Ground() {
+	const [ref] = usePlane(
+		() => ({
+			type: "Static",
+			rotation: [-Math.PI / 2, 0, 0],
+			position: [0, 0, 0],
+		}),
+		useRef(null),
+	);
+
 	const gridMap = useLoader(TextureLoader, "/textures/grid.png");
 	const aoMap = useLoader(TextureLoader, "/textures/ground-ao.png");
 	const alphaMap = useLoader(TextureLoader, "/textures/alpha-map.png");
@@ -41,6 +51,7 @@ export default function Ground() {
 				rotation-z={-0.079}
 			>
 				<circleGeometry args={[6.12, 50]} />
+				{/* Reflection on the circle ground (plane) */}
 				<MeshReflectorMaterial
 					aoMap={aoMap}
 					alphaMap={alphaMap}
