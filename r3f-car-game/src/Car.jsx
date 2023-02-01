@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useWheels } from "./UseWheels";
 import { WheelDebug } from "./WheelDebug";
+import useControls from "./useControls";
 
 export default function Car() {
 	let model = useLoader(GLTFLoader, "/models/car.glb");
@@ -40,6 +41,8 @@ export default function Car() {
 		}),
 		useRef(null),
 	);
+
+	useControls(vehicleApi, chassisApi);
 
 	useEffect(() => {
 		car.scale.set(0.0012, 0.0012, 0.0012);
