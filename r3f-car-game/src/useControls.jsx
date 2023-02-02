@@ -80,7 +80,7 @@ const useControls = (vehicleApi, chassisApi) => {
 
 		// Reset the car position and rotation to the initial position
 		if (controls.r) {
-			chassisApi.position.set(-1.5, 0.5, 3);
+			chassisApi.position.set(-1.5, 0.1, 3);
 			chassisApi.velocity.set(0, 0, 0);
 			chassisApi.angularVelocity.set(0, 0, 0);
 			chassisApi.rotation.set(0, 0, 0);

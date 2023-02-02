@@ -11,7 +11,7 @@ export default function Car({ thirdPerson }) {
 	let model = useLoader(GLTFLoader, "/models/car.glb");
 	let car = model.scene;
 
-	const position = [-1.5, 0.5, 3];
+	const position = [-1.5, 0.1, 3];
 	const width = 0.15;
 	const height = 0.07;
 	const front = 0.15;

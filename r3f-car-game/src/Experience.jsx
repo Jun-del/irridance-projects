@@ -1,4 +1,4 @@
-import { Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Circle, Environment, OrbitControls, PerspectiveCamera, Sphere } from "@react-three/drei";
 import { Suspense, useState, useEffect } from "react";
 
 import Ground from "./Ground";
@@ -29,6 +29,8 @@ export default function Experience() {
 			<PerspectiveCamera makeDefault position={cameraPosition} fov={40} />
 			{!thirdPerson && <OrbitControls target={[-2.64, -0.71, 0.03]} />}
 			<OrbitControls target={[-2.64, -0.71, 0.03]} />
+
+			{/* <Circle rotation={[-Math.PI / 2, 0, 0]} position={[-2.3, -0.2, -1.4]} args={[6, 10]} /> */}
 
 			<Ground />
 			<Track />
