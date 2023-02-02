@@ -63,6 +63,28 @@ const useControls = (vehicleApi, chassisApi) => {
 					vehicleApi.setSteeringValue(0, i);
 				}
 		}
+
+		// Apply local impulse to the center of mass of the chassis, in both sides
+		if (controls.arrowdown) {
+			chassisApi.applyLocalImpulse([0, -3, 0], [0, 0, +0.5]);
+		}
+		if (controls.arrowup) {
+			chassisApi.applyLocalImpulse([0, -3, 0], [0, 0, -0.5]);
+		}
+		if (controls.arrowleft) {
+			chassisApi.applyLocalImpulse([0, -3, 0], [-0.5, 0, 0]);
+		}
+		if (controls.arrowright) {
+			chassisApi.applyLocalImpulse([0, -3, 0], [+0.5, 0, 0]);
+		}
+
+		// Reset the car position and rotation to the initial position
+		if (controls.r) {
+			chassisApi.position.set(-1.5, 0.5, 3);
+			chassisApi.velocity.set(0, 0, 0);
+			chassisApi.angularVelocity.set(0, 0, 0);
+			chassisApi.rotation.set(0, 0, 0);
+		}
 	}, [controls, vehicleApi, chassisApi]);
 
 	return controls;
