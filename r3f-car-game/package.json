@@ -5,9 +5,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
+		"deploy": "vercel --prod",
 		"build": "vite build",
-		"preview": "vite preview",
-		"deploy": "vercel --prod"
+		"preview": "vite preview"
 	},
 	"dependencies": {
 		"@react-three/cannon": "^6.5.2",
@@ -16,7 +16,8 @@
 		"@types/three": "^0.148.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"three": "^0.149.0"
+		"three": "^0.149.0",
+		"vercel": "^28.16.2"
 	},
 	"devDependencies": {
 		"@types/react": "^18.0.26",

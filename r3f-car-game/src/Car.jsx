@@ -2,13 +2,18 @@ import { useBox, useRaycastVehicle } from "@react-three/cannon";
 import { useLoader, useFrame } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { useWheels } from "./UseWheels";
 import { WheelDebug } from "./WheelDebug";
 import { Quaternion, Vector3 } from "three";
 import useControls from "./useControls";
 
 export default function Car({ thirdPerson }) {
-	let model = useLoader(GLTFLoader, "/models/car.glb");
+	let model = useLoader(GLTFLoader, "/models/car.glb", (loader) => {
+		const dracoLoader = new DRACOLoader();
+		dracoLoader.setDecoderPath("./draco/");
+		loader.setDRACOLoader(dracoLoader);
+	});
 	let car = model.scene;
 
 	const position = [-1.5, 0.1, 3];

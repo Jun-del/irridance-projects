@@ -1,12 +1,18 @@
 import { useLoader } from "@react-three/fiber";
 import { useEffect } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { TextureLoader } from "three";
 import ColliderBox from "./ColliderBox";
 import Ramp from "./Ramp";
 
 export default function Track() {
-	const model = useLoader(GLTFLoader, "/models/track.glb");
+	const model = useLoader(GLTFLoader, "/models/track.glb", (loader) => {
+		const dracoLoader = new DRACOLoader();
+		dracoLoader.setDecoderPath("./draco/");
+		loader.setDRACOLoader(dracoLoader);
+	});
+
 	const colorMap = useLoader(TextureLoader, "/textures/track.png");
 
 	// By setting anisotropy to 16, the texture will be filtered with a maximum degree of directional dependence of 16, meaning that the texture will appear more detailed and less blurry when viewed from certain angles.
