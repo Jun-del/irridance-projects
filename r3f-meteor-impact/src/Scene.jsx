@@ -1,53 +1,54 @@
 import { useGLTF, useTexture } from "@react-three/drei";
 
 const meshData = [
-	{ geometry: "ground", texture: "ground" },
-	{ geometry: "ground2", texture: "ground2" },
-	{ geometry: "ground_debris", texture: "ground_debris" },
-	{ geometry: "pipes_and_rover", texture: "pipes_and_rover" },
-	{ geometry: "astronauts_white", texture: "astronauts_white" },
-	{ geometry: "astronauts_orange", texture: "astronauts_orange" },
-	{ geometry: "fragments", texture: "fragments" },
-	{ geometry: "debris", texture: "debris" },
+  { geometry: "ground", texture: "ground" },
+  { geometry: "ground2", texture: "ground2" },
+  { geometry: "ground_debris", texture: "ground_debris" },
+  { geometry: "pipes_and_rover", texture: "pipes_and_rover" },
+  { geometry: "astronauts_white", texture: "astronauts_white" },
+  { geometry: "astronauts_orange", texture: "astronauts_orange" },
+  { geometry: "fragments", texture: "fragments" },
+  { geometry: "debris", texture: "debris" },
 ];
 
 function Mesh({ geometry, texture, nodes, textures }) {
-	// find the index of the texture in the meshData array based on the geometry name
-	const textureIndex = meshData.findIndex((x) => x.geometry === geometry);
+  // find the index of the texture in the meshData array based on the geometry name
+  const textureIndex = meshData.findIndex((x) => x.geometry === geometry);
 
-	return (
-		<mesh geometry={nodes[geometry].geometry}>
-			{texture && <meshBasicMaterial map={textures[textureIndex]} />}
-		</mesh>
-	);
+  return (
+    <mesh geometry={nodes[geometry].geometry}>
+      {texture && <meshBasicMaterial map={textures[textureIndex]} />}
+    </mesh>
+  );
 }
 
 export default function Scene() {
-	const { nodes } = useGLTF("/models/scene.glb");
+  const { nodes } = useGLTF("/models/scene.glb", true);
 
-	const textures = useTexture(meshData.map((data) => `/textures/${data.texture}.png`));
+  const textures = useTexture(meshData.map((data) => `/textures/${data.texture}.png`));
 
-	return (
-		<>
-			{meshData.map((data) => (
-				<Mesh
-					key={data.geometry}
-					geometry={data.geometry}
-					texture={data.texture}
-					nodes={nodes}
-					textures={textures}
-				/>
-			))}
+  return (
+    <>
+      {meshData.map((data) => (
+        <Mesh
+          key={data.geometry}
+          geometry={data.geometry}
+          texture={data.texture}
+          nodes={nodes}
+          textures={textures}
+        />
+      ))}
 
-			<mesh geometry={nodes.astronauts_visors.geometry}>
-				<meshStandardMaterial roughness={0} metalness={1} color={"#b68432"} />
-			</mesh>
-		</>
-	);
+      <mesh geometry={nodes.astronauts_visors.geometry}>
+        <meshStandardMaterial roughness={0} metalness={1} color={"#b68432"} />
+      </mesh>
+    </>
+  );
 }
 
 /**
  * Irradiance
+ * 
  import { useGLTF, useTexture } from "@react-three/drei";
 
 export default function Scene() {
