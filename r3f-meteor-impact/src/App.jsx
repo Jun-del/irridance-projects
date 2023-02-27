@@ -1,8 +1,9 @@
 import React, { Suspense, useEffect } from "react";
+import * as THREE from "three";
+import { useThree } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera, Environment } from "@react-three/drei";
 import Scene from "./Scene";
-import { useThree } from "@react-three/fiber";
-import * as THREE from "three";
+import Meteor from "./Meteor";
 
 function App() {
   const state = useThree();
@@ -21,11 +22,12 @@ function App() {
 
       <Environment background={false} files={"/textures/envmap.hdr"} />
 
-      <PerspectiveCamera makeDefault fov={33} position={[-0.09, 16.01, -27.9]} />
-      <OrbitControls target={[0.304, 0.806, 0.427]} maxPolarAngle={Math.PI * 0.45} />
+      <PerspectiveCamera makeDefault fov={33} position={[-0.07, 16.41, -24.1]} />
+      <OrbitControls target={[0.02, 0.806, 0.427]} maxPolarAngle={Math.PI * 0.45} />
 
       <Suspense fallback={null}>
         <Scene />
+        <Meteor />
       </Suspense>
     </>
   );
