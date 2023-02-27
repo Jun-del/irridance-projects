@@ -1,4 +1,6 @@
 import { MeshTransmissionMaterial, useGLTF, useTexture } from "@react-three/drei";
+import { NodeToyMaterial } from "@nodetoy/react-nodetoy";
+import { data as meteorShaderData } from "./meteor-shader";
 
 export default function Meteor() {
   // Credit: https://sketchfab.com/3d-models/moon-meteor-dbd699a1bf2249a596ecc411ab69679f
@@ -26,6 +28,10 @@ export default function Meteor() {
           attenuationDistance={0.2}
           attenuationColor={"#e2ae5b"}
         />
+      </mesh>
+
+      <mesh geometry={nodes.meteor.geometry} scale={[1.02, 1.02, 1.02]}>
+        <NodeToyMaterial data={meteorShaderData} />
       </mesh>
     </>
   );
