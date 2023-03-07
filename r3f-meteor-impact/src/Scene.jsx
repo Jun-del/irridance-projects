@@ -1,4 +1,6 @@
+import { NodeToyMaterial } from "@nodetoy/react-nodetoy";
 import { useGLTF, useTexture } from "@react-three/drei";
+import { data as earthLightning } from "./Shader/earth-lightning";
 
 const meshData = [
   { geometry: "ground", texture: "ground" },
@@ -29,6 +31,10 @@ export default function Scene() {
 
   return (
     <>
+      <mesh geometry={nodes.ground.geometry}>
+        <NodeToyMaterial data={earthLightning} />
+      </mesh>
+
       {meshData.map((data) => (
         <Mesh
           key={data.geometry}

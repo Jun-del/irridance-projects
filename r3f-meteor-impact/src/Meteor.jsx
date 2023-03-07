@@ -1,6 +1,6 @@
 import { MeshTransmissionMaterial, useGLTF, useTexture } from "@react-three/drei";
 import { NodeToyMaterial } from "@nodetoy/react-nodetoy";
-import { data as meteorShaderData } from "./meteor-shader";
+import { data as meteorShaderData } from "./Shader/meteor";
 
 export default function Meteor() {
   // Credit: https://sketchfab.com/3d-models/moon-meteor-dbd699a1bf2249a596ecc411ab69679f

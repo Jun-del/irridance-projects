@@ -1,6 +1,6 @@
-import { Canvas } from "@react-three/fiber";
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { Canvas } from "@react-three/fiber";
 import App from "./App";
 import "./index.css";
 
