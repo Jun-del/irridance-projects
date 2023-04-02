@@ -3,7 +3,7 @@ import { useThree } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera, Environment } from "@react-three/drei";
 import Scene from "./Scene";
 import Meteor from "./Meteor";
-import Beams from "./beams";
+import Beams from "./Beam";
 import { NodeToyTick } from "@nodetoy/react-nodetoy";
 
 function App() {

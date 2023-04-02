@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@nodetoy/react-nodetoy": "^0.1.23",
@@ -17,7 +18,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "three": "^0.148.0",
-    "three-stdlib": "^2.21.6"
+    "three-stdlib": "^2.21.6",
+    "vercel": "^28.18.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
